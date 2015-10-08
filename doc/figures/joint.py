@@ -1,0 +1,24 @@
+import numpy as np
+from matplotlib import rc
+import matplotlib.pyplot as plt
+
+"""
+Make a plot of p(theta, D)
+"""
+
+rc("font", size=18, family="serif", serif="Computer Sans")
+rc("text", usetex=True)
+
+# Resolution
+N = 256
+[x, y] = np.meshgrid(np.linspace(0., 5., N), np.linspace(5., 0., N))
+
+f = np.exp(-0.5*(x-2.5)**2/1.**2)*np.exp(-0.5*((y - 5*(x/5)**2)**2)/0.3**2)
+f /= f.sum()
+
+plt.imshow(f, extent=[x.min(), x.max(), y.min(), y.max()], cmap='Blues')
+plt.xlabel(r'$\theta$')
+plt.ylabel(r'$D$')
+plt.savefig('joint.pdf', bbox_inches='tight')
+plt.show()
+
