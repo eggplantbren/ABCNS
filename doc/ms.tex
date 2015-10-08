@@ -31,15 +31,22 @@ p(\params, \data) = p(\params)p(\data|\params)
 
 \begin{table}[ht!]
 \centering
+\small
 \begin{tabular}{lll}
 \hline
-Bayesian computation		&		Statistical Mechanics		&		ABC\\
+Bayesian computation		&		Statistical mechanics		&		ABC\\
 \hline
-Parameter space	$\Theta$	&		Phase space					& (Parameter$\times$Data) space $\Theta \times \mathcal{D}$\\		
+Parameter space	$\Theta$	&		Phase space	$\Omega$ or configuration space $\Gamma$ 			& (Parameter$\times$Data) space $\Theta \times \mathcal{D}$\\		
 Marginal likelihood / evidence	&	Partition function at $T=1$	&\\
 
 
 \end{tabular}
+\caption{\it The relationship between standard Bayesian computation, statistical
+mechanics, and ABC. In each case Monte Carlo methods are used to calculate
+integrals over a space. In standard Bayesian computation, it is the parameter
+space of a model that is usually of interest, whereas in ABC it is the space
+of possible parameter values {\it and} data sets.
+\label{tab:relation}}
 \end{table}
 
 \end{document}
