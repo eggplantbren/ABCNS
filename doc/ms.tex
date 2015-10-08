@@ -18,6 +18,9 @@
 \begin{document}
 \maketitle
 
+\section{Introduction}
+
+
 \section{Bayesian inference}
 By the product rule of probability theory, the prior $p(\params)$ and the
 conditional prior for the data $p(\data | \params)$ imply a joint prior
@@ -28,6 +31,15 @@ p(\params, \data) = p(\params)p(\data|\params)
 \end{array}
 \end{equation}
 
+\section{Approximate Bayesian Computation}
+Approximate Bayesian Computation (ABC), also known as likelihood-free inference,
+is a set of Monte Carlo techniques for approximating a posterior distribution
+without having to evaluate the likelihood function. Instead, the ability to
+generate simulated data sets from the sampling distribution is required.
+Since a sampling distribution must be specified, it is not the assumption of
+a specific likelihood that is avoided (indeed, a sampling distribution and
+a data set imply a particular likelihood function), rather that we cannot
+evaluate it cheaply as a function of $\params$ and $\data$.
 
 \begin{table}[ht!]
 \centering
