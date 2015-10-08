@@ -7,6 +7,7 @@
 
 \newcommand{\params}{\boldsymbol{\theta}}	% The unknown parameters
 \newcommand{\data}{\boldsymbol{D}}  % The data
+\newcommand{\rands}{\boldsymbol{u}}
 \newcommand{\dx}{d^N\mathbf{\params}} % Volume element in parameter space
 \renewcommand{\topfraction}{0.85}
 \renewcommand{\textfraction}{0.1}
@@ -68,6 +69,28 @@ of possible parameter values {\it and} data sets.
 \caption{\it The joint prior for parameters $\params$ and data $\data$.
 \label{fig:joint}}
 \end{figure}
+
+The main challenges associated with ABC are:
+\begin{enumerate}
+\item The choice of summary statistics
+\item The choice of distance function
+\item How to choose the value of $\epsilon$, or how to change it as a run
+progresses
+\item How to achieve good mixing.
+\end{enumerate}
+Challenges 1 and 2 are Bayesian in nature, i.e. they relate to the very
+definition of the posterior distribution and are well defined independent of
+the fact that we are going to use a Monte Carlo method to compute the
+results. On the other hand, challenges 3 and 4 are about the computational implementation.
+
+\section{Parameterising the data space}
+
+It should be more efficient in general to parameterise the simulated dataset
+by a set of rand calls, rather than in the coordinate system that naturally
+describes the data. This allows MCMC moves to change $\params$ while keeping
+$\rands$ fixed, resulting in a proposed new dataset that is similar to the
+previous one, assuming the change to $\params$ is small.
+
 
 \end{document}
 
