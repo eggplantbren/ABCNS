@@ -1,0 +1,32 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage[left=3cm,top=3cm,right=3cm]{geometry}
+
+\newcommand{\params}{\boldsymbol{\theta}}	% The unknown parameters
+\newcommand{\data}{\boldsymbol{D}}  % The data
+\newcommand{\dx}{d^N\mathbf{\params}} % Volume element in parameter space
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\parindent=0cm
+
+\title{Approximate Bayesian Computation with Nested Sampling}
+\author{Brendon J. Brewer}
+
+\begin{document}
+\maketitle
+
+\section{Bayesian inference}
+By the product rule of probability theory, the prior $p(\params)$ and the
+conditional prior for the data $p(\data | \params)$ imply a joint prior
+for $\params$ and $\data$:
+\begin{equation}
+\begin{array}{lr}
+p(\params, \data) = p(\params)p(\data|\params)
+\end{array}
+\end{equation}
+
+\end{document}
+
