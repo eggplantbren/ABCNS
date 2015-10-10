@@ -24,5 +24,5 @@ plt.axhline(1.5, color='k')
 plt.fill_between(x[0, :], 1.3, 1.5, color=[0.2, 0.2, 0.2], alpha=0.2)
 plt.fill_between(x[0, :], 1.2, 1.8, color=[0.6, 0.6, 0.6], alpha=0.2)
 plt.savefig('joint.pdf', bbox_inches='tight')
-plt.show()
+#plt.show()
 
