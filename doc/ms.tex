@@ -7,6 +7,7 @@
 
 \newcommand{\params}{\boldsymbol{\theta}}	% The unknown parameters
 \newcommand{\data}{\boldsymbol{D}}  % The data
+\newcommand{\dobs}{\boldsymbol{D}_{\rm obs}} % The observed value of the data
 \newcommand{\rands}{\boldsymbol{u}}
 \newcommand{\dx}{d^N\mathbf{\params}} % Volume element in parameter space
 \renewcommand{\topfraction}{0.85}
@@ -31,6 +32,17 @@ for $\params$ and $\data$:
 p(\params, \data) = p(\params)p(\data|\params)
 \end{array}
 \end{equation}
+
+When we learn the value of the data, i.e. that the proposition
+$\data = \dobs$ is true for some given value of $\dobs$, our knowledge of
+$\params$ is updated from the marginal distribution $p(\params)$ (the prior)
+to the specific conditional distribution $p(\params | \data=\dobs)$ given by
+the product of the prior and the likelihood:
+
+\begin{eqnarray}
+p(\params | \data=\dobs) &\propto& p(\params)p(\data=\dobs | \params)\\
+&=& p(\params)\left.P(\data | \params)\right|_{\data=\dobs}.
+\end{eqnarray}
 
 \section{Approximate Bayesian Computation}
 Approximate Bayesian Computation (ABC), also known as likelihood-free inference,
@@ -65,7 +77,7 @@ of possible parameter values {\it and} data sets.
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.5]{figures/joint.pdf}
+\includegraphics[scale=0.5]{joint.pdf}
 \caption{\it The joint prior for parameters $\params$ and data $\data$.
 \label{fig:joint}}
 \end{figure}
