@@ -33,6 +33,13 @@ p(\params, \data) = p(\params)p(\data|\params)
 \end{array}
 \end{equation}
 
+The prior $p(\params)$ is a probability distribution over $\Theta$, the space
+of possible values of the parameters. The conditional prior for the data,
+$p(\data | \params)$, is a family of probability distributions over the space
+of possible datasets $\mathcal{D}$. Therefore the joint prior is a probability
+distribution over $\Theta \times \mathcal{D}$, which describes our prior
+uncertainty about the parameters {\it and the data} \citep{caticha}.
+
 When we learn the value of the data, i.e. that the proposition
 $\data = \dobs$ is true for some given value of $\dobs$, our knowledge of
 $\params$ is updated from the marginal distribution $p(\params)$ (the prior)
@@ -103,6 +110,17 @@ describes the data. This allows MCMC moves to change $\params$ while keeping
 $\rands$ fixed, resulting in a proposed new dataset that is similar to the
 previous one, assuming the change to $\params$ is small.
 
+\section*{Acknowledgements}
+It is a pleasure to thank Ewan Cameron (Oxford), Dan
+Foreman-Mackey (Washington), David Hogg (NYU), Daniela Huppenkothen (NYU),
+Scott Sisson (UNSW), and Yanan Fan (NYU) for valuable discussions.
+
+\begin{thebibliography}{99}
+\bibitem[Caticha(2008)]{caticha} Caticha, A.\ 2008.\ Lectures 
+on Probability, Entropy, and Statistical Physics.\ ArXiv e-prints 
+arXiv:0808.0012. 
+
+\end{thebibliography}
 
 \end{document}
 
