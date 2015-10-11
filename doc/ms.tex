@@ -119,11 +119,26 @@ In some cases, we might be able to find efficient proposal distributions for exp
 problem we're working on. However, there are also techniques that are
 completely general in that they should work on any ABC-type problem.
 
-It should be more efficient in general to parameterise the simulated dataset
-by a set of rand calls, rather than in the coordinate system that naturally
-describes the data. This allows MCMC moves to change $\params$ while keeping
-$\rands$ fixed, resulting in a proposed new dataset that is similar to the
-previous one, assuming the change to $\params$ is small.
+Consider the process of generating a mock dataset. Whatever else is involved,
+this process will involve calls to an underlying random number generator.
+Perhaps a function {\tt rand()}, generating variables from a Uniform(0, 1)
+distribution, is called $n$ times in the course of generating a dataset.
+Usually, the simulation process has the property that, if $\theta'$ is
+close to $\theta$, then the same sequence of random numbers returned by
+{\tt rand()} would produce a dataset $\data'$ that is very similar to $\data$.
+This suggests an alternative parameterisation of
+the product space $\Theta\times\mathcal{D}$: instead of using the one that
+naturally describes the data, we can use a coordinate system defined by
+$\theta$ together with $\{u_1, ..., u_n\}$, the $n$ uniform random numbers
+used to construct a mock dataset.
+
+In this alternative coordinate system, a proposed move
+to change $\params$ while keeping
+$\{u_i\}$ fixed results in a proposed new dataset that is similar to the
+previous one, assuming the change to $\params$ is small. The standard procedure
+of generating an entirely new mock dataset each step is now viewed as a
+proposal where $\params$ is moved {\it and all of the $u_i$ coordinates are
+re-generated from their iid uniform prior}.
 
 \section*{Acknowledgements}
 It is a pleasure to thank Ewan Cameron (Oxford), Dan
