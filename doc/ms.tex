@@ -103,6 +103,17 @@ the fact that we are going to use a Monte Carlo method to compute the
 results. On the other hand, challenges 3 and 4 are about the computational implementation.
 
 \section{Parameterising the data space}
+In standard MCMC-based ABC, proposal moves are made by first proposing a
+change to the parameters (from $\params$ to $\params'$), and then generating
+a mock dataset $\data'$ from $p(\data | \params')$. As a Metropolis proposal
+for exploring the product space $\Theta \times \mathcal{D}$ this is a very
+aggressive choice, since the proposed value of the
+dataset $\params'$ is likely to be very different from the previous one.
+One of the most elementary pieces of advice we receive when learning the
+Metropolis algorithm is to be careful about how ambitious our proposal
+distributions are, since tiny and huge proposal moves are both very
+inefficient.
+
 
 It should be more efficient in general to parameterise the simulated dataset
 by a set of rand calls, rather than in the coordinate system that naturally
