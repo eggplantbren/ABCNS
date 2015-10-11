@@ -112,8 +112,12 @@ dataset $\params'$ is likely to be very different from the previous one.
 One of the most elementary pieces of advice we receive when learning the
 Metropolis algorithm is to be careful about how ambitious our proposal
 distributions are, since tiny and huge proposal moves are both very
-inefficient.
+inefficient. The performance of MCMC-based ABC can therefore be improved by
+alternative choices of proposal distribution.
 
+In some cases, we might be able to find efficient proposal distributions for exploring $\Theta \times \mathcal{D}$ by having insight into the particular
+problem we're working on. However, there are also techniques that are
+completely general in that they should work on any ABC-type problem.
 
 It should be more efficient in general to parameterise the simulated dataset
 by a set of rand calls, rather than in the coordinate system that naturally
